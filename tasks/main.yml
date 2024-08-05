@@ -1,0 +1,14 @@
+---
+# tasks file for vim
+- name: "Install VIM"
+  ansible.builtin.apt:
+    name: vim
+    state: present
+
+- name: Deploy vim config
+  ansible.builtin.template:
+    src: vimrc
+    dest: /etc/vim/vimrc.local
+    owner: root
+    group: root
+    mode: "0644"
